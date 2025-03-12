@@ -9,7 +9,7 @@ import SearchBar from "./component/SearchBar";
 import { getProducts, deleteProduct } from "./utils/firebase";
 
 const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || "/api/python/api"; // Dynamically select API
+  process.env.NEXT_PUBLIC_API_URL || "/api"; // Use API env variable
 
 export default function Home() {
   const [products, setProducts] = useState([]);
