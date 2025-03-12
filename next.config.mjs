@@ -17,7 +17,7 @@ const nextConfig = {
         source: "/api/:path*",
         destination:
           process.env.NODE_ENV === "development"
-            ? "http://127.0.0.1:5328/api/:path*" // Local dev server
+            ? "http://127.0.0.1:5000/api/:path*" // Local dev server
             : "/api/:path*", // Use serverless API routes in production
       },
     ];
