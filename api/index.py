@@ -157,4 +157,4 @@ def store_analysis_in_firebase(result):
     # })
 
 if __name__=="__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5328)  # Change the port to match Next.js config
