@@ -1,0 +1,21 @@
+# below is the command
+
+create .env file create variable GOOGLE_API_KEY and API_KEY(groq api key)
+
+
+python -m venv venv     
+source venv/bin/activate   
+
+#install
+pip install flask  
+pip install groq  
+pip install dotenv
+
+#to run sever
+python server.py
+
+----------------------------------------
+# in client/pantryapp
+- install npm package - npm install firebase, npm install -g ngrok
+- To start ngrok : ngrok http 3000 (to make secure https connection)
+- User need to create account on ngrok dashboard and get authtoken(https://dashboard.ngrok.com/get-started/setup)
