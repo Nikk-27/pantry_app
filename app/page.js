@@ -73,45 +73,52 @@ export default function Home() {
   );
 
   return (
-    <div className={styles.container}>
+    <div className="min-h-screen bg-gray-50 flex flex-col items-center p-8">
       <Head>
         <title>Product Inventory</title>
         <meta name="description" content="Product inventory management" />
         <link rel="icon" href="favicon.ico" />
       </Head>
 
-      <main className="bg-gray-100 p-8 min-h-screen w-full">
-        <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
-          Product Inventory
-        </h1>
+      <h1 className="text-4xl font-bold text-gray-800 mb-6 text-center">
+        Product Inventory
+      </h1>
 
-        <div className="max-w-3xl mx-auto mb-4">
-          <SearchBar setSearchTerm={setSearchTerm} />
-        </div>
+      <div className="w-full max-w-3xl">
+        <SearchBar setSearchTerm={setSearchTerm} />
+      </div>
 
-        <div className="flex flex-col items-center justify-center text-center mt-4">
+      {/* Capture Section */}
+      <div className="bg-white shadow-lg rounded-lg p-6 mt-6 flex flex-col items-center w-80">
+        <video
+          ref={videoRef}
+          autoPlay
+          className="w-48 h-48 rounded-md border border-gray-300 mb-4"
+        />
+        <canvas ref={canvasRef} hidden />
+
+        <div className="flex flex-col items-center space-y-3">
           <CaptureButton onCapture={fetchProducts} />
           <button
             onClick={captureAndSendImage}
-            className="mt-2 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+            className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200"
           >
             Capture Image
           </button>
-          <video ref={videoRef} autoPlay hidden />
-          <canvas ref={canvasRef} hidden />
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {filteredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              onDelete={() => handleDelete(product.id)}
-              onUpdate={fetchProducts}
-            />
-          ))}
-        </div>
-      </main>
+      {/* Product List */}
+      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-6xl">
+        {filteredProducts.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            onDelete={() => handleDelete(product.id)}
+            onUpdate={fetchProducts}
+          />
+        ))}
+      </div>
     </div>
   );
 }
