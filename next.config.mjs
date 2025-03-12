@@ -5,7 +5,6 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "firebasestorage.googleapis.com",
-        port: "",
         pathname: "/**",
       },
     ],
@@ -17,8 +16,8 @@ const nextConfig = {
         source: "/api/:path*",
         destination:
           process.env.NODE_ENV === "development"
-            ? "http://127.0.0.1:5000/api/:path*" // Local dev server
-            : "/api/:path*", // Use serverless API routes in production
+            ? "http://127.0.0.1:5000/api/:path*" // Local dev
+            : "https://pantry-app-nikita-lalwanis-projects.vercel.app/api/:path*", // Vercel API path
       },
     ];
   },
